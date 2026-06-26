@@ -108,11 +108,12 @@ export function Hero({ booted }: { booted: boolean }) {
                   { label: "GitHub", icon: Github, href: "https://github.com/zssain" },
                   { label: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/zuhairhussain28" },
                   { label: "Email", icon: Mail, href: "mailto:mohammedzuhairhussain28@gmail.com" },
-                  { label: "Résumé", icon: Download, href: "#" },
+                  { label: "Résumé", icon: Download, href: "/Mohammed-Zuhair-Hussain-Resume.pdf", target: "_blank" },
                 ].map((b) => {
                   const Icon = b.icon;
+                  const target = "target" in b ? b.target : b.href.startsWith("http") ? "_blank" : undefined;
                   return (
-                    <MagneticButton key={b.label} href={b.href} target={b.href.startsWith("http") ? "_blank" : undefined} className="zh-btn"
+                    <MagneticButton key={b.label} href={b.href} target={target} className="zh-btn"
                       style={{ display: "inline-flex", alignItems: "center", gap: 9, color: C.text, textDecoration: "none", border: `1px solid ${C.border}`, borderRadius: 8, padding: "10px 15px", fontSize: 14 }}>
                       <Icon size={16} /> {b.label}
                     </MagneticButton>
