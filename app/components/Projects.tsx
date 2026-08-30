@@ -77,7 +77,26 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
+// Compact list row for the non-pinned projects (the "more" list beside the
+// pinned cards). Mirrors the old repo-list styling.
+function ProjectRepoItem({ p }: { p: Project }) {
+  return (
+    <a className="proj-repo" href={p.github} target="_blank" rel="noreferrer">
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 10 }}>
+        <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 14.5, fontWeight: 500, color: C.accent, flex: 1, minWidth: 0, lineHeight: 1.3, wordBreak: "break-word" }}>{p.title}</span>
+        <ArrowUpRight size={14} style={{ color: C.muted, flexShrink: 0, marginTop: 2 }} />
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 7, fontFamily: "var(--font-mono), monospace", fontSize: 11.5, color: C.muted }}>
+        {p.lang && (<><span style={{ width: 9, height: 9, borderRadius: 99, background: langColor(p.lang), flexShrink: 0 }} />{p.lang}</>)}
+        <span style={{ color: C.faint, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.category}</span>
+      </div>
+    </a>
+  );
+}
+
 export function Projects() {
+  const pinned = PROJECTS.filter((p) => p.pinned);
+  const more = PROJECTS.filter((p) => !p.pinned);
   return (
     <section id="projects" style={{ padding: "70px 0" }}>
       <Reveal>
@@ -89,23 +108,36 @@ export function Projects() {
         </span>
       </div>
 
-      <div>
-        <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: "0.15em", color: C.muted, marginBottom: 14 }}>
-          PINNED PROJECTS
+      <div className="proj-wrap">
+        <aside className="proj-repos">
+          <div style={{ display: "flex", alignItems: "center", gap: 10, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
+            <BookMarked size={16} style={{ color: C.muted }} />
+            <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 15, fontWeight: 600 }}>More projects</span>
+            <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono), monospace", fontSize: 12, color: C.muted, border: `1px solid ${C.border}`, borderRadius: 99, padding: "2px 9px" }}>{more.length}</span>
+          </div>
+          <div className="proj-repolist">
+            {more.map((p) => (<ProjectRepoItem key={p.title} p={p} />))}
+          </div>
+        </aside>
+
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: "0.15em", color: C.muted, marginBottom: 14 }}>
+            PINNED PROJECTS
+          </div>
+          <motion.div
+            className="proj-grid"
+            variants={projGridContainer}
+            initial="gridHidden"
+            whileInView="gridShow"
+            viewport={{ once: true, margin: "-8% 0px" }}
+          >
+            {pinned.map((p) => (
+              <motion.div key={p.title} variants={projCardItem}>
+                <ProjectCard p={p} />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-        <motion.div
-          className="proj-grid"
-          variants={projGridContainer}
-          initial="gridHidden"
-          whileInView="gridShow"
-          viewport={{ once: true, margin: "-8% 0px" }}
-        >
-          {PROJECTS.filter((p) => p.pinned).map((p) => (
-            <motion.div key={p.title} variants={projCardItem}>
-              <ProjectCard p={p} />
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
       </Reveal>
     </section>

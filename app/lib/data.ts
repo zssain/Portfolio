@@ -79,7 +79,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/zssain/Accenture-Hackathon",
     demo: null,
     image: null,
-    pinned: true,
+    pinned: false,
   },
   {
     title: "Multi-Model Image Colorization",
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance",
     demo: null,
     image: null,
-    pinned: true,
+    pinned: false,
   },
   {
     title: "Time-Series Forecasting of Stock Prices",
@@ -139,7 +139,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/zssain/Intelligent-Document-Processing",
     demo: null,
     image: null,
-    pinned: true,
+    pinned: false,
   },
   {
     title: "Visentix — Privacy Intelligence Platform",
@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/zssain/visentix-v2--MVP",
     demo: null,
     image: null,
-    pinned: true,
+    pinned: false,
   },
   // add more projects here ↑ (same shape)
 ];
