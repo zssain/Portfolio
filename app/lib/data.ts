@@ -187,23 +187,12 @@ export const EXPERIENCE: ExperienceItem[] = [
     hash: "f3a9b21",
     branch: "HEAD → main",
     org: "Teclusion AI",
-    role: "AI Engineer",
-    date: "2026-06 — Present",
-    desc:
-      "Building Visentix, a privacy-intelligence SaaS, as one of two engineers — an end-to-end LLM pipeline that decomposes legal text into clauses, classifies them across 8 privacy domains, and scores them with 14 versioned deterministic formulas (full source-to-score lineage, SHA-256 reproducible reports). Self-hosted Qwen3-8B via Ollama; hardened with row-level security across 56 Postgres tables, JWT auth, and a 1,000+ test suite.",
-    tags: ["LLM Pipeline", "FastAPI", "pgvector", "Ollama"],
-    stat: { files: 56, ins: 1120, del: 84 },
-  },
-  {
-    hash: "a1b2ca2",
-    branch: "feat/idp",
-    org: "Teclusion AI",
     role: "AI/ML Engineer Intern",
-    date: "2025-09 — 2026-06",
+    date: "2025-09 — Present",
     desc:
-      "Shipped BluePearl, an Intelligent Document Processing platform that answers one question across hundreds of reports with source-cited answers on locally hosted LLMs — cutting manual review time by 90%. Built Vantage, a dynamic pricing engine pairing ARIMA/SARIMA forecasting with ML to price every SKU within margin and brand-price floors: +6–10% optimized revenue, 50% less manual pricing effort.",
-    tags: ["RAG", "IDP", "Time-Series", "LLMOps"],
-    stat: { files: 14, ins: 320, del: 41 },
+      "Co-built Visentix, a multi-tenant privacy-intelligence SaaS, as one of two engineers — an end-to-end LLM pipeline (clause decomposition, classification across 8 privacy domains, deterministic scoring) on FastAPI + PostgreSQL/pgvector with a self-hosted Qwen3-8B served via Ollama, deployed across Azure, a RunPod GPU pod, and Cloudflare Workers. Kept the AI out of the arithmetic with 14 versioned deterministic formulas, SHA-256 reproducible reports, row-level security across 56 tables, and a 1,000+ test suite. Also shipped BluePearl (intelligent document processing, −90% review time) and Vantage (ARIMA/SARIMA pricing engine, +6–10% revenue).",
+    tags: ["LLM Pipeline", "FastAPI", "pgvector", "Ollama", "RAG"],
+    stat: { files: 56, ins: 1120, del: 84 },
   },
   {
     hash: "a1b2ca1",
