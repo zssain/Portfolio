@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
-import { FolderGit2, BookMarked, ArrowUpRight } from "lucide-react";
+import { FolderGit2, BookMarked, ArrowUpRight, Pin } from "lucide-react";
 import { C, PROJECTS, langColor, type Project } from "../lib/data";
 import { SectionLabel } from "./SectionLabel";
 import { Reveal } from "./Reveal";
@@ -84,6 +84,7 @@ function ProjectRepoItem({ p }: { p: Project }) {
     <a className="proj-repo" href={p.github} target="_blank" rel="noreferrer">
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 10 }}>
         <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 14.5, fontWeight: 500, color: C.accent, flex: 1, minWidth: 0, lineHeight: 1.3, wordBreak: "break-word" }}>{p.title}</span>
+        {p.pinned && <Pin size={12} fill="currentColor" style={{ color: C.accent, flexShrink: 0, marginTop: 3 }} />}
         <ArrowUpRight size={14} style={{ color: C.muted, flexShrink: 0, marginTop: 2 }} />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 7, fontFamily: "var(--font-mono), monospace", fontSize: 11.5, color: C.muted }}>
@@ -96,7 +97,7 @@ function ProjectRepoItem({ p }: { p: Project }) {
 
 export function Projects() {
   const pinned = PROJECTS.filter((p) => p.pinned);
-  const more = PROJECTS.filter((p) => !p.pinned);
+  const all = PROJECTS;
   return (
     <section id="projects" style={{ padding: "70px 0" }}>
       <Reveal>
@@ -112,11 +113,11 @@ export function Projects() {
         <aside className="proj-repos">
           <div style={{ display: "flex", alignItems: "center", gap: 10, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
             <BookMarked size={16} style={{ color: C.muted }} />
-            <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 15, fontWeight: 600 }}>More projects</span>
-            <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono), monospace", fontSize: 12, color: C.muted, border: `1px solid ${C.border}`, borderRadius: 99, padding: "2px 9px" }}>{more.length}</span>
+            <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 15, fontWeight: 600 }}>All projects</span>
+            <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono), monospace", fontSize: 12, color: C.muted, border: `1px solid ${C.border}`, borderRadius: 99, padding: "2px 9px" }}>{all.length}</span>
           </div>
           <div className="proj-repolist">
-            {more.map((p) => (<ProjectRepoItem key={p.title} p={p} />))}
+            {all.map((p) => (<ProjectRepoItem key={p.title} p={p} />))}
           </div>
         </aside>
 
