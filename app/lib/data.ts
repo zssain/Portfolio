@@ -35,6 +35,7 @@ export interface Project {
   github: string;
   demo: string | null;
   image: string | null;
+  pinned: boolean; // only pinned projects render as cards in the Projects grid
 }
 
 export interface Repo {
@@ -65,7 +66,8 @@ export const PROJECTS: Project[] = [
     lang: "Python",
     github: "https://github.com/zssain/Aperture",
     demo: null,
-    image: null,
+    image: null, // <-- screenshot URL (shown on hover)
+    pinned: true,
   },
   {
     title: "Agentic Recruitment Automation",
@@ -76,7 +78,8 @@ export const PROJECTS: Project[] = [
     lang: "Python",
     github: "https://github.com/zssain/Accenture-Hackathon",
     demo: null,
-    image: null, // <-- screenshot URL (shown on hover)
+    image: null,
+    pinned: true,
   },
   {
     title: "Multi-Model Image Colorization",
@@ -88,17 +91,67 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance",
     demo: null,
     image: null,
+    pinned: true,
+  },
+  {
+    title: "Time-Series Forecasting of Stock Prices",
+    category: "Time-Series · Model Benchmarking",
+    desc:
+      "A reproducible study benchmarking five model families — ARIMA, GARCH, Prophet, KNN, and feed-forward neural nets — for 30-day stock-price forecasting, weighing accuracy (RMSE, MAPE) against complexity. Every comparison is grounded in statistical validation: ADF stationarity tests, ACF/PACF analysis, Ljung-Box diagnostics, and GARCH volatility modelling for risk-aware forecasts.",
+    tags: ["TensorFlow", "Statsmodels", "Prophet", "Pandas"],
+    lang: "Python",
+    github: "https://github.com/zssain/Time-Series-Forecasting-of-Stock-Prices",
+    demo: null,
+    image: null,
+    pinned: true,
+  },
+  {
+    title: "Vantage — Dynamic Pricing Engine",
+    category: "ML · Dynamic Pricing",
+    desc:
+      "A dynamic pricing engine that pairs ARIMA/SARIMA time-series forecasting with ML to predict demand and price elasticity for every SKU. It reacts to competitor moves within business-set margin and brand-price floors — driving a 6–10% lift in optimized revenue and cutting manual pricing effort by 50%.",
+    tags: ["ARIMA/SARIMA", "scikit-learn", "Forecasting", "Python"],
+    lang: "Python",
+    github: "https://github.com/zssain/Dynamic-Pricing-Engine",
+    demo: null,
+    image: null,
+    pinned: true,
   },
   {
     title: "WISP — Offline Mesh Messaging",
     category: "Full-Stack · Distributed Systems",
     desc:
-      "Serverless crisis-comms PWA across three transport tiers with a gossip sync engine, Ed25519 signatures, and sub-200ms LAN sync.",
+      "A serverless crisis-comms PWA spanning three transport tiers (WebRTC over Wi-Fi, animated QR sync, printed posters), deployable by URL in under 30 seconds with zero backend. A gossip sync engine with Bloom-filter anti-entropy, Ed25519 signatures, and NaCl end-to-end encryption hits sub-200 ms LAN sync — all in a 180 KB gzipped bundle.",
     tags: ["React", "TypeScript", "WebRTC", "Ed25519"],
     lang: "TypeScript",
     github: "https://github.com/zssain/pingpong",
     demo: null,
     image: null,
+    pinned: true,
+  },
+  {
+    title: "BluePearl — Intelligent Document Processing",
+    category: "GenAI · Document Intelligence",
+    desc:
+      "An IDP platform that lets financial teams ask a single question across hundreds of reports and get accurate, source-cited answers — running entirely on locally hosted LLMs so client data never leaves their own infrastructure. Cut manual document-review time by 90%.",
+    tags: ["RAG", "Local LLMs", "FastAPI", "Vector Search"],
+    lang: "Python",
+    github: "https://github.com/zssain/Intelligent-Document-Processing",
+    demo: null,
+    image: null,
+    pinned: true,
+  },
+  {
+    title: "Visentix — Privacy Intelligence Platform",
+    category: "GenAI · Privacy Intelligence",
+    desc:
+      "A privacy-intelligence SaaS whose LLM pipeline decomposes legal text into clauses, classifies them across 8 privacy domains, and scores them with 14 versioned deterministic formulas — full source-to-score lineage and SHA-256 reproducible reports. Self-hosted Qwen3-8B via Ollama, hardened with row-level security across 56 Postgres tables, JWT auth, PII redaction, and a 1,000+ test suite.",
+    tags: ["LLM Pipeline", "FastAPI", "pgvector", "Ollama"],
+    lang: "Python",
+    github: "https://github.com/zssain/visentix-v2--MVP",
+    demo: null,
+    image: null,
+    pinned: true,
   },
   // add more projects here ↑ (same shape)
 ];

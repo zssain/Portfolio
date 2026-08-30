@@ -3,25 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
 import { FolderGit2, BookMarked, ArrowUpRight } from "lucide-react";
-import { C, PROJECTS, REPOS, langColor, timeAgo, type Project, type Repo } from "../lib/data";
+import { C, PROJECTS, langColor, type Project } from "../lib/data";
 import { SectionLabel } from "./SectionLabel";
 import { Reveal } from "./Reveal";
 import { Tag } from "./Tag";
-
-function RepoItem({ r }: { r: Repo }) {
-  return (
-    <a className="proj-repo" href={r.url} target="_blank" rel="noreferrer">
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 10 }}>
-        <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 14.5, fontWeight: 500, color: C.accent, flex: 1, minWidth: 0, lineHeight: 1.3, wordBreak: "break-word" }}>{r.name}</span>
-        <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: 10, color: C.muted, border: `1px solid ${C.border}`, borderRadius: 99, padding: "2px 8px", flexShrink: 0 }}>Public</span>
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 7, fontFamily: "var(--font-mono), monospace", fontSize: 11.5, color: C.muted }}>
-        {r.language && (<><span style={{ width: 9, height: 9, borderRadius: 99, background: langColor(r.language), flexShrink: 0 }} />{r.language}</>)}
-        {r.updated_at && <span style={{ color: C.faint }}>Updated {timeAgo(r.updated_at)}</span>}
-      </div>
-    </a>
-  );
-}
 
 /* Project grid stagger + per-card reveal (distinct labels so they don't collide
    with the section-level <Reveal> "hidden"/"show" variants). */
@@ -104,36 +89,23 @@ export function Projects() {
         </span>
       </div>
 
-      <div className="proj-wrap">
-        <aside className="proj-repos">
-          <div style={{ display: "flex", alignItems: "center", gap: 10, paddingBottom: 12, borderBottom: `1px solid ${C.border}` }}>
-            <BookMarked size={16} style={{ color: C.muted }} />
-            <span style={{ fontFamily: "var(--font-display), sans-serif", fontSize: 15, fontWeight: 600 }}>Repositories</span>
-            <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono), monospace", fontSize: 12, color: C.muted, border: `1px solid ${C.border}`, borderRadius: 99, padding: "2px 9px" }}>{REPOS.length}</span>
-          </div>
-          <div className="proj-repolist">
-            {REPOS.map((r) => (<RepoItem key={r.name} r={r} />))}
-          </div>
-        </aside>
-
-        <div>
-          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: "0.15em", color: C.muted, marginBottom: 14 }}>
-            PINNED PROJECTS
-          </div>
-          <motion.div
-            className="proj-grid"
-            variants={projGridContainer}
-            initial="gridHidden"
-            whileInView="gridShow"
-            viewport={{ once: true, margin: "-8% 0px" }}
-          >
-            {PROJECTS.map((p) => (
-              <motion.div key={p.title} variants={projCardItem}>
-                <ProjectCard p={p} />
-              </motion.div>
-            ))}
-          </motion.div>
+      <div>
+        <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: "0.15em", color: C.muted, marginBottom: 14 }}>
+          PINNED PROJECTS
         </div>
+        <motion.div
+          className="proj-grid"
+          variants={projGridContainer}
+          initial="gridHidden"
+          whileInView="gridShow"
+          viewport={{ once: true, margin: "-8% 0px" }}
+        >
+          {PROJECTS.filter((p) => p.pinned).map((p) => (
+            <motion.div key={p.title} variants={projCardItem}>
+              <ProjectCard p={p} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
       </Reveal>
     </section>
