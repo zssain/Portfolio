@@ -219,11 +219,13 @@ export const EXPERIENCE: ExperienceItem[] = [
 ];
 
 export const SKILLS = [
-  { group: "Languages", items: ["Python", "TypeScript", "Java", "C", "SQL"] },
-  { group: "ML / DL", items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"] },
-  { group: "LLM tooling", items: ["Hugging Face", "LangChain", "LangGraph", "Ollama", "pgvector", "LLMOps"] },
-  { group: "Web", items: ["FastAPI", "Next.js", "React", "Node.js"] },
-  { group: "Data / Cloud", items: ["PostgreSQL", "Supabase", "AWS", "Azure", "Vercel"] },
+  { group: "Core areas", items: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Generative AI", "LLM Applications"] },
+  { group: "Languages", items: ["Python", "SQL", "TypeScript", "JavaScript", "Java", "C"] },
+  { group: "ML / DL", items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "XGBoost", "Statsmodels", "NumPy", "Pandas", "OpenCV", "ARIMA / SARIMA", "GARCH", "Prophet", "Model monitoring"] },
+  { group: "LLM / GenAI", items: ["RAG", "Vector search", "pgvector", "sentence-transformers", "LangChain", "LangGraph", "Hugging Face", "Ollama", "Agentic systems", "Prompt engineering", "Guardrails & eval"] },
+  { group: "Backend / Web", items: ["FastAPI", "REST APIs", "async I/O", "Node.js", "Express.js", "React", "Next.js", "Streamlit"] },
+  { group: "Data / Cloud", items: ["PostgreSQL", "Supabase", "MongoDB", "Firebase", "Docker", "AWS (EC2)", "Azure", "Vercel", "Linux", "Git / GitHub"] },
+  { group: "Engineering", items: ["RLS & JWT", "Rate limiting", "pytest", "mypy (strict)", "PII redaction"] },
 ];
 
 
