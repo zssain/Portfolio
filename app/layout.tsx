@@ -24,7 +24,7 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-sigma-virid-86.vercel.app"),
+  metadataBase: new URL("https://www.zuhairhussain.com"),
   title: "Mohammed Zuhair Hussain — AI / ML Engineer",
   description: "Portfolio of Mohammed Zuhair Hussain, AI / ML Engineer.",
   icons: {
