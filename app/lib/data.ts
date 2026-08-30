@@ -57,6 +57,17 @@ export interface ExperienceItem {
 
 export const PROJECTS: Project[] = [
   {
+    title: "Aperture — Cash-Flow Credit Decisioning",
+    category: "Fintech · Deterministic ML",
+    desc:
+      "A credit-decisioning platform for applicants banks can't score — underwriting from verified bank-transaction evidence (Account Aggregator) instead of a bureau score. A 9-gate deterministic policy engine makes every call with zero AI in the decision path, an 11-feature cash-flow scorecard (ROC-AUC 0.787, KS 0.45) explains each contribution, and a hash-chained audit ledger keeps it all auditable.",
+    tags: ["FastAPI", "scikit-learn", "XGBoost", "React"],
+    lang: "Python",
+    github: "https://github.com/zssain/Aperture",
+    demo: null,
+    image: null,
+  },
+  {
     title: "Agentic Recruitment Automation",
     category: "Agentic AI · Multi-Agent",
     desc:
@@ -112,14 +123,25 @@ export const timeAgo = (iso: string) => {
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    hash: "a1b2ca2",
+    hash: "f3a9b21",
     branch: "HEAD → main",
     org: "Teclusion AI",
-    role: "AI/ML Engineer Intern",
-    date: "2025-09 — Present",
+    role: "AI Engineer",
+    date: "2026-06 — Present",
     desc:
-      "Built a RAG chatbot over enterprise documents with the underlying document-intelligence and LLMOps pipelines (SharePoint, Drive, data lakes). Shipped a dynamic ML pricing engine with competitor-scraping pipelines.",
-    tags: ["RAG", "LangChain", "LLMOps", "IDP"],
+      "Building Visentix, a privacy-intelligence SaaS, as one of two engineers — an end-to-end LLM pipeline that decomposes legal text into clauses, classifies them across 8 privacy domains, and scores them with 14 versioned deterministic formulas (full source-to-score lineage, SHA-256 reproducible reports). Self-hosted Qwen3-8B via Ollama; hardened with row-level security across 56 Postgres tables, JWT auth, and a 1,000+ test suite.",
+    tags: ["LLM Pipeline", "FastAPI", "pgvector", "Ollama"],
+    stat: { files: 56, ins: 1120, del: 84 },
+  },
+  {
+    hash: "a1b2ca2",
+    branch: "feat/idp",
+    org: "Teclusion AI",
+    role: "AI/ML Engineer Intern",
+    date: "2025-09 — 2026-06",
+    desc:
+      "Shipped BluePearl, an Intelligent Document Processing platform that answers one question across hundreds of reports with source-cited answers on locally hosted LLMs — cutting manual review time by 90%. Built Vantage, a dynamic pricing engine pairing ARIMA/SARIMA forecasting with ML to price every SKU within margin and brand-price floors: +6–10% optimized revenue, 50% less manual pricing effort.",
+    tags: ["RAG", "IDP", "Time-Series", "LLMOps"],
     stat: { files: 14, ins: 320, del: 41 },
   },
   {
@@ -138,7 +160,7 @@ export const EXPERIENCE: ExperienceItem[] = [
 export const SKILLS = [
   { group: "Languages", items: ["Python", "TypeScript", "Java", "C", "SQL"] },
   { group: "ML / DL", items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"] },
-  { group: "LLM tooling", items: ["Hugging Face", "LangChain", "LangGraph", "LLMOps", "MLOps"] },
+  { group: "LLM tooling", items: ["Hugging Face", "LangChain", "LangGraph", "Ollama", "pgvector", "LLMOps"] },
   { group: "Web", items: ["FastAPI", "Next.js", "React", "Node.js"] },
   { group: "Data / Cloud", items: ["PostgreSQL", "Supabase", "AWS", "Azure", "Vercel"] },
 ];
@@ -181,7 +203,7 @@ export const GLOBE_SKILLS: GlobeSkill[] = [
 ];
 
 export const ACHIEVEMENTS: [string, string][] = [
-    ["8.2 / 10", "CGPA"],
+    ["8.13 / 10", "CGPA"],
     ["Merit", "scholarship"],
     ["Finalist", "Synchrony UniHack '25"],
     ["General Secretary", "Mahindra University · 2024–25"],
