@@ -70,7 +70,7 @@ html { scroll-behavior: smooth; }
 .proj-repolist::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
 .proj-repo { display: block; text-decoration: none; padding: 12px 12px; border-radius: 10px; transition: background .15s ease; }
 .proj-repo:hover { background: rgba(255,255,255,0.035); }
-.proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.proj-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .proj-card { border: 1px solid var(--border); border-radius: 14px; background: var(--panel); padding: 20px 22px; }
 .proj-card:hover .proj-title { color: var(--accent); }
 .proj-card { position: relative; }
