@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
 import { FolderGit2, BookMarked, ArrowUpRight, Pin } from "lucide-react";
 import { C, PROJECTS, langColor, type Project } from "../lib/data";
@@ -19,13 +19,32 @@ const projCardItem: Variants = {
   gridShow: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 0.61, 0.36, 1] } },
 };
 
+const DESC_CLAMP_LINES = 4;
+
 function ProjectCard({ p }: { p: Project }) {
   const [hover, setHover] = useState(false);
   // Touch devices have no hover: show the screenshot inline instead of as a popover.
   const [hoverCapable, setHoverCapable] = useState(true);
+  // Long descriptions are clamped for readability and expand on demand.
+  const [expanded, setExpanded] = useState(false);
+  const [overflowing, setOverflowing] = useState(false);
+  const descRef = useRef<HTMLParagraphElement>(null);
+
   useEffect(() => {
     setHoverCapable(window.matchMedia("(hover: hover)").matches);
   }, []);
+
+  useEffect(() => {
+    const measure = () => {
+      const el = descRef.current;
+      if (!el) return;
+      // Measured while clamped: full content taller than the clamp box ⇒ needs a toggle.
+      if (!expanded) setOverflowing(el.scrollHeight - el.clientHeight > 2);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [expanded]);
 
   return (
     <motion.div
@@ -58,7 +77,44 @@ function ProjectCard({ p }: { p: Project }) {
         <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: 10, color: C.muted, border: `1px solid ${C.border}`, borderRadius: 99, padding: "2px 9px" }}>Public</span>
       </div>
       {p.category && <span className="proj-cat">{p.category}</span>}
-      <p style={{ color: C.muted, fontSize: 14, lineHeight: 1.6, margin: "12px 0 16px" }}>{p.desc}</p>
+      <p
+        ref={descRef}
+        style={{
+          color: C.muted,
+          fontSize: 14,
+          lineHeight: 1.6,
+          margin: "12px 0 8px",
+          ...(expanded
+            ? {}
+            : {
+                display: "-webkit-box",
+                WebkitLineClamp: DESC_CLAMP_LINES,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }),
+        }}
+      >
+        {p.desc}
+      </p>
+      {(overflowing || expanded) && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          style={{
+            background: "none",
+            border: "none",
+            padding: 0,
+            marginBottom: 14,
+            cursor: "pointer",
+            fontFamily: "var(--font-mono), monospace",
+            fontSize: 12.5,
+            color: C.accent,
+          }}
+        >
+          {expanded ? "Show less ↑" : "Show more ↓"}
+        </button>
+      )}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
         {p.tags.map((t) => (<Tag key={t} warm>{t}</Tag>))}
       </div>
