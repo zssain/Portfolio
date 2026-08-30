@@ -16,7 +16,6 @@ import {
   Check,
   AlertTriangle,
   Terminal,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -318,43 +317,6 @@ const NUMBERS = [
   { value: "3", label: "metrics per result" },
   { value: "128²", label: "input resolution" },
 ];
-
-/* --- Screenshot slot ----------------------------------------------------- */
-function Shot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div className="overflow-hidden rounded-lg border" style={{ borderColor: C.rule, backgroundColor: C.block }}>
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{ aspectRatio: `${w} / ${h}`, backgroundColor: C.block, color: C.faint }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{ aspectRatio: `${w} / ${h}`, objectFit: "cover", backgroundColor: C.block }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ========================================================================== */
 
@@ -767,67 +729,6 @@ export default function ColorizationLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — SCREENSHOT SHOWCASE
-          Dashboard capture is 3024 × 1964. Remaining slots are TODO.
-          Drop files into /screenshots and keep the filenames below.
-          ================================================================== */}
-      <section className="border-b" style={{ borderColor: C.rule }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-          <Reveal>
-            <Eyebrow>The dashboard</Eyebrow>
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-              Drop an image on the left, read the numbers on the right.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/screenshots/colorization-dashboard.png",
-                w: 3024,
-                h: 1964,
-                wide: true,
-                alt: "The Gradio image colorization dashboard showing the four model choices, an upload target for a grayscale image, and panels for the colorized result and its metrics.",
-                caption:
-                  "The local dashboard. Each model choice states its own requirements up front — two run offline, two need artifacts that aren't in the repository.",
-              },
-              {
-                // TODO: capture a DeOldify result with its metrics readout
-                src: "/screenshots/colorization-deoldify.png",
-                w: 3024,
-                h: 1964,
-                alt: "TODO: a DeOldify colorization result alongside its PSNR, SSIM and MSE readout.",
-                caption:
-                  "A DeOldify result. The strongest output of the four, with its metrics printed beside it.",
-              },
-              {
-                // TODO: capture the same input through the autoencoder for contrast
-                src: "/screenshots/colorization-autoencoder.png",
-                w: 3024,
-                h: 1964,
-                alt: "TODO: the same input colorized by the from-scratch LAB autoencoder.",
-                caption:
-                  "The same photo through the autoencoder. Noisier and prone to clipping in the conversion back to RGB — what 17 training images buys you.",
-              },
-              {
-                // TODO: capture the autoencoder training curve from the notebook
-                src: "/screenshots/colorization-training.png",
-                w: 3024,
-                h: 1964,
-                alt: "TODO: the autoencoder training and validation loss curve over 100 epochs.",
-                caption:
-                  "Training the autoencoder. Loss 0.0173 against validation 0.0285 after 100 epochs — the gap a 17-image training set produces.",
-              },
-            ].map((shot, i) => (
-              <Reveal key={shot.src} delay={i * 90} className={shot.wide ? "lg:col-span-2" : undefined}>
-                <Shot src={shot.src} w={shot.w} h={shot.h} alt={shot.alt} caption={shot.caption} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

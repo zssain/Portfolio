@@ -15,7 +15,6 @@ import {
   BookOpen,
   Terminal,
   AlertTriangle,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -404,46 +403,6 @@ const NUMBERS = [
   { value: "7", label: "source files" },
   { value: "0", label: "servers, endpoints, tables" },
 ];
-
-/* --- Plot slot ------------------------------------------------------------
-   The repo ships 17 plots + 10 equation images, but they are from the original
-   R run. TODO: capture fresh output from the Python code before publishing.
-   ------------------------------------------------------------------------- */
-function Plot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div className="overflow-hidden rounded border" style={{ borderColor: C.grid, backgroundColor: C.plot }}>
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{ aspectRatio: `${w} / ${h}`, backgroundColor: C.plot, color: C.faint }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{ aspectRatio: `${w} / ${h}`, objectFit: "contain", backgroundColor: C.plot }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ========================================================================== */
 
@@ -852,52 +811,6 @@ export default function ForecastingLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — PLOT SHOWCASE
-          The repo ships 17 plots, but they came from the original R run.
-          TODO: capture fresh matplotlib output from the Python code.
-          Slots assume 1200 × 800 — adjust to your saved figure size.
-          ================================================================== */}
-      <section className="border-y" style={{ borderColor: C.grid, backgroundColor: C.plot }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
-          <Reveal>
-            <Eyebrow>Output</Eyebrow>
-            <h2 className="max-w-2xl font-mono text-2xl leading-tight tracking-tight sm:text-3xl">
-              What comes out of one run.
-            </h2>
-          </Reveal>
-
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/plots/bollinger.png",
-                alt: "TODO: Bollinger Band chart of the S&P 500 close with a 20-day moving average and two standard deviation bands.",
-                caption: "Bollinger Bands. A 20-day moving average with ±2σ envelopes, plotted before any model is fitted.",
-              },
-              {
-                src: "/plots/acf-pacf.png",
-                alt: "TODO: autocorrelation and partial autocorrelation plots used to select the ARIMA order.",
-                caption: "ACF and PACF alongside the Augmented Dickey-Fuller statistic — where the (5,1,2) order originally came from.",
-              },
-              {
-                src: "/plots/garch-volatility.png",
-                alt: "TODO: conditional volatility plot from the fitted GARCH(1,1) model.",
-                caption: "Conditional volatility from the GARCH(1,1) fit, showing the clustering a level-only model cannot represent.",
-              },
-              {
-                src: "/plots/forecast-overlay.png",
-                alt: "TODO: the five 30-day forecasts overlaid on the historical closing price series.",
-                caption: "The comparison itself: five 30-day forecasts on one set of axes. This is the figure the whole study exists to produce.",
-              },
-            ].map((p, i) => (
-              <Reveal key={p.src} delay={i * 90}>
-                <Plot src={p.src} w={1200} h={800} alt={p.alt} caption={p.caption} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

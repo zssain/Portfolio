@@ -20,7 +20,6 @@ import {
   RotateCcw,
   Hash,
   Database,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -228,49 +227,6 @@ const NUMBERS = [
   { value: "1 KB", label: "Bloom fingerprint on the wire" },
   { value: "128-bit", label: "content address per message" },
 ];
-
-/* --- Screenshot slot ------------------------------------------------------
-   Shows the real capture when the file exists at `src`. Until then it draws a
-   labelled frame at the exact aspect ratio so the layout doesn't collapse.
-   -------------------------------------------------------------------------- */
-function Shot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div
-        className="overflow-hidden border transition-colors duration-300"
-        style={{ borderColor: C.rule, backgroundColor: C.panel }}
-      >
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{ aspectRatio: `${w} / ${h}`, backgroundColor: C.panel, color: C.faint }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{ aspectRatio: `${w} / ${h}`, objectFit: "cover", backgroundColor: C.panel }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ========================================================================== */
 
@@ -734,67 +690,6 @@ export default function WispLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — SCREENSHOT SHOWCASE
-          Messages capture is 3024 × 1720. Remaining slots are TODO.
-          Drop files into /screenshots and keep the filenames below.
-          ================================================================== */}
-      <section className="border-b" style={{ borderColor: C.rule }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-          <Reveal>
-            <Eyebrow>The app</Eyebrow>
-            <h2 className="max-w-2xl text-3xl leading-tight tracking-tight sm:text-4xl">
-              A field console, not a social feed.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/screenshots/wisp-messages.png",
-                w: 3024,
-                h: 1720,
-                wide: true,
-                alt: "The Wisp messages screen showing an end-to-end encrypted DM list with an empty contacts state and the bottom navigation bar.",
-                caption:
-                  "Direct messages. The daily alias sits in the header, the offline-ready badge confirms the service worker has cached the app, and an empty state invites the first contact rather than apologising for the emptiness.",
-              },
-              {
-                // TODO: capture the feed with news and alerts
-                src: "/screenshots/wisp-feed.png",
-                w: 3024,
-                h: 1720,
-                alt: "TODO: the feed showing local news and life-safety alerts with their TTLs.",
-                caption:
-                  "The feed. Alerts outrank news in both display and sync priority, and every item carries the time it has left before expiry.",
-              },
-              {
-                // TODO: capture the connect flow (QR offer / answer)
-                src: "/screenshots/wisp-connect.png",
-                w: 3024,
-                h: 1720,
-                alt: "TODO: the connect screen showing the SDP offer rendered as a QR code.",
-                caption:
-                  "Connect. The complete WebRTC offer rendered as a scannable code, with the animated-QR fallback when the payload won't fit one frame.",
-              },
-              {
-                // TODO: capture the mesh graph
-                src: "/screenshots/wisp-mesh.png",
-                w: 3024,
-                h: 1720,
-                alt: "TODO: the mesh graph visualising peers seen and messages relayed.",
-                caption:
-                  "Mesh graph. Peers seen and paths travelled, purged after five minutes of silence so the picture reflects who is actually nearby.",
-              },
-            ].map((shot, i) => (
-              <Reveal key={shot.src} delay={i * 90} className={shot.wide ? "lg:col-span-2" : undefined}>
-                <Shot src={shot.src} w={shot.w} h={shot.h} alt={shot.alt} caption={shot.caption} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

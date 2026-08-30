@@ -20,7 +20,6 @@ import {
   AlertTriangle,
   Terminal,
   FileCheck,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -163,57 +162,6 @@ function Logo({ onInk = false }) {
         Aperture
       </span>
     </span>
-  );
-}
-
-/* --- Screenshot slot ------------------------------------------------------
-   Shows the real capture when the file exists at `src`. Until then it draws a
-   labelled frame at the exact aspect ratio so the layout doesn't collapse.
-   -------------------------------------------------------------------------- */
-function Shot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div
-        className="overflow-hidden rounded-lg border bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
-        style={{ borderColor: C.rule }}
-      >
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{
-              aspectRatio: `${w} / ${h}`,
-              backgroundColor: "#EDEFF3",
-              color: C.muted,
-            }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{
-              aspectRatio: `${w} / ${h}`,
-              objectFit: "cover",
-              backgroundColor: "#EDEFF3",
-            }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
   );
 }
 
@@ -892,84 +840,6 @@ export default function ApertureLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — SCREENSHOT SHOWCASE
-          Slots are sized to the real captures:
-            sign-in  3024 × 1722
-            all others 3024 × 1964
-          Drop the files into /screenshots and keep the filenames below.
-          ================================================================== */}
-      <section className="border-b" style={{ borderColor: C.rule, backgroundColor: C.mist }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-          <Reveal>
-            <Eyebrow>The workspace</Eyebrow>
-            <h2 className="max-w-2xl text-3xl leading-tight sm:text-4xl" style={{ fontFamily: SERIF }}>
-              Where an analyst actually works the case.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/screenshots/aperture-signin.png",
-                w: 3024,
-                h: 1722,
-                wide: true,
-                alt: "The Aperture analyst sign-in screen: a white form panel beside a navy panel headlined 'Evidence-based credit decisions for thin-file applicants'.",
-                caption:
-                  "Analyst sign-in. Four RBAC roles behind Argon2id session cookies, an eight-hour sliding idle timeout, and cross-tenant reads that return 404 rather than 403 — so a wrong tenant can't even confirm a case exists.",
-              },
-              {
-                src: "/screenshots/aperture-queue.png",
-                w: 3024,
-                h: 1964,
-                alt: "The decision queue listing three cases routed to a human, with amount, routing reason, recommendation, PD, coverage and verification columns.",
-                caption:
-                  "The decision queue. Only cases the policy routed to a human appear here — each row carries the gate that sent it, its uncalibrated PD, and its coverage score.",
-              },
-              {
-                src: "/screenshots/aperture-new-case.png",
-                w: 3024,
-                h: 1964,
-                alt: "The new case wizard: applicant and request details, a choice between connecting financial accounts or uploading a statement, and a bank picker.",
-                caption:
-                  "Opening a case. Connected accounts and uploaded statements are not treated as equal evidence — the verification method changes the coverage score before any assessment runs.",
-              },
-              {
-                src: "/screenshots/aperture-case-file.png",
-                w: 3024,
-                h: 1964,
-                alt: "The case file evidence tab showing PD, affordability, coverage and verification bands, a six-month cash-flow chart, and a classified transaction ledger.",
-                caption:
-                  "The case file. Every transaction shows how it was classified — RULE or vector k-NN — and the bureau-only counterfactual states what a lender without cash-flow evidence would have decided.",
-              },
-              {
-                src: "/screenshots/aperture-ask-codebase.png",
-                w: 3024,
-                h: 1964,
-                alt: "The 'Ask the codebase' modal answering an architecture question, with real backend file paths listed underneath the answer.",
-                caption:
-                  "Ask the codebase. The assistant answers only from a hand-verified registry of real file paths; any file it invents is dropped before the answer is returned.",
-              },
-            ].map((shot, i) => (
-              <Reveal
-                key={shot.src}
-                delay={i * 90}
-                className={shot.wide ? "lg:col-span-2" : undefined}
-              >
-                <Shot
-                  src={shot.src}
-                  w={shot.w}
-                  h={shot.h}
-                  alt={shot.alt}
-                  caption={shot.caption}
-                />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -20,7 +20,6 @@ import {
   Quote,
   AlertTriangle,
   Check,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -237,49 +236,6 @@ const NUMBERS = [
   { value: "985", label: "test functions" },
   { value: "0", label: "legal verdicts, by construction" },
 ];
-
-/* --- Screenshot slot ------------------------------------------------------
-   Shows the real capture when the file exists at `src`. Until then it draws a
-   labelled frame at the exact aspect ratio so the layout doesn't collapse.
-   -------------------------------------------------------------------------- */
-function Shot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div
-        className="overflow-hidden rounded-xl border shadow-sm transition-shadow duration-300 hover:shadow-lg"
-        style={{ borderColor: C.border, backgroundColor: C.card }}
-      >
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{ aspectRatio: `${w} / ${h}`, backgroundColor: "#EBEFF5", color: C.muted }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{ aspectRatio: `${w} / ${h}`, objectFit: "cover", backgroundColor: "#EBEFF5" }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ========================================================================== */
 
@@ -755,67 +711,6 @@ export default function VisentixLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — SCREENSHOT SHOWCASE
-          Admin console capture is 3014 × 1800. Remaining slots are TODO.
-          Drop files into /screenshots and keep the filenames below.
-          ================================================================== */}
-      <section className="border-b" style={{ borderColor: C.border }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-          <Reveal>
-            <Eyebrow>The console</Eyebrow>
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl" style={{ color: C.heading }}>
-              Where an analyst runs and checks the work.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/screenshots/visentix-admin.png",
-                w: 3014,
-                h: 1800,
-                wide: true,
-                alt: "The Visentix admin console showing system health, live database record counts, the global gate mode selector and system operations.",
-                caption:
-                  "Admin console. Live record counts straight from Postgres, model-backend state reported without waking the scale-to-zero GPU, and the gate mode that decides whether customers see drafts at all.",
-              },
-              {
-                // TODO: capture the intake screen (URL / upload / paste)
-                src: "/screenshots/visentix-intake.png",
-                w: 3014,
-                h: 1800,
-                alt: "TODO: the intake screen offering URL, file upload and pasted-text entry.",
-                caption:
-                  "Intake. One pipeline behind three entry points, with the SSRF guard and magic-byte typing applied before anything is stored.",
-              },
-              {
-                // TODO: capture the workbench / review queue
-                src: "/screenshots/visentix-workbench.png",
-                w: 3014,
-                h: 1800,
-                alt: "TODO: the workbench where a reviewer confirms, edits or dismisses findings.",
-                caption:
-                  "Workbench. Every finding is confirmed, edited or dismissed by a reviewer, and each action is captured as a training label.",
-              },
-              {
-                // TODO: capture a rendered report or the PDF output
-                src: "/screenshots/visentix-report.png",
-                w: 3014,
-                h: 1800,
-                alt: "TODO: a frozen report showing scores, findings and their source clauses.",
-                caption:
-                  "The frozen report. Once approved it re-renders byte for byte, with the model, corpus and benchmark versions stamped on every score.",
-              },
-            ].map((shot, i) => (
-              <Reveal key={shot.src} delay={i * 90} className={shot.wide ? "lg:col-span-2" : undefined}>
-                <Shot src={shot.src} w={shot.w} h={shot.h} alt={shot.alt} caption={shot.caption} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

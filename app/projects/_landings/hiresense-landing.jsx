@@ -17,7 +17,6 @@ import {
   Database,
   Terminal,
   AlertTriangle,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -278,43 +277,6 @@ const NUMBERS = [
   { value: "12", label: "columns per candidate row" },
   { value: "0", label: "API keys required" },
 ];
-
-/* --- Screenshot slot ----------------------------------------------------- */
-function Shot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div className="overflow-hidden rounded-lg border" style={{ borderColor: C.rule, backgroundColor: C.block }}>
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{ aspectRatio: `${w} / ${h}`, backgroundColor: C.block, color: C.faint }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{ aspectRatio: `${w} / ${h}`, objectFit: "cover", backgroundColor: C.block }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ========================================================================== */
 
@@ -715,67 +677,6 @@ export default function HireSenseLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — SCREENSHOT SHOWCASE
-          Dashboard capture is 3014 × 1662. Remaining slots are TODO.
-          Drop files into /screenshots and keep the filenames below.
-          ================================================================== */}
-      <section className="border-b" style={{ borderColor: C.rule }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-          <Reveal>
-            <Eyebrow>The dashboard</Eyebrow>
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-              A job post, a folder of CVs, one button.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/screenshots/hiresense-dashboard.png",
-                w: 3014,
-                h: 1662,
-                wide: true,
-                alt: "The HireSense dashboard showing job details fields, a CV upload area for PDFs, and a slider setting how many top candidates to show.",
-                caption:
-                  "The input form. Job title, description, a batch of PDF CVs, and a slider for how many candidates make the shortlist — then the supervisor takes over.",
-              },
-              {
-                // TODO: capture the results view with ranked candidate cards
-                src: "/screenshots/hiresense-results.png",
-                w: 3014,
-                h: 1662,
-                alt: "TODO: the results view showing ranked candidates with match, persona and bias-free scores plus explanations.",
-                caption:
-                  "The shortlist. Each candidate carries a match score, a persona score, its bias flags and the SHAP sentence explaining the ranking.",
-              },
-              {
-                // TODO: capture the per-candidate expanded card / explanation
-                src: "/screenshots/hiresense-explanation.png",
-                w: 3014,
-                h: 1662,
-                alt: "TODO: an expanded candidate card showing the score breakdown and explanation.",
-                caption:
-                  "One candidate in detail. The score breakdown, the redacted preview, and the feature that moved the number.",
-              },
-              {
-                // TODO: capture an intermediate CSV open in a viewer — shows the audit trail
-                src: "/screenshots/hiresense-artifacts.png",
-                w: 3014,
-                h: 1662,
-                alt: "TODO: one of the intermediate CSV artifacts written by a pipeline stage.",
-                caption:
-                  "An intermediate artifact. Seven CSVs are left behind by a run, which is what makes the ranking auditable after the fact.",
-              },
-            ].map((shot, i) => (
-              <Reveal key={shot.src} delay={i * 90} className={shot.wide ? "lg:col-span-2" : undefined}>
-                <Shot src={shot.src} w={shot.w} h={shot.h} alt={shot.alt} caption={shot.caption} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

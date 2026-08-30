@@ -19,7 +19,6 @@ import {
   Gauge,
   TrendingUp,
   AlertTriangle,
-  Image as ImageIcon,
 } from "lucide-react";
 
 /* ============================================================================
@@ -264,46 +263,6 @@ const NUMBERS = [
   { value: "9", label: "cities with weather coverage" },
   { value: "60/40", label: "rules to model blend" },
 ];
-
-/* --- Screenshot slot ----------------------------------------------------- */
-function Shot({ src, w, h, alt, caption }) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <figure>
-      <div
-        className="overflow-hidden rounded-2xl border transition-shadow duration-300 hover:shadow-xl"
-        style={{ borderColor: C.border, backgroundColor: C.card }}
-      >
-        {failed ? (
-          <div
-            className="flex flex-col items-center justify-center gap-2 px-6 text-center"
-            style={{ aspectRatio: `${w} / ${h}`, backgroundColor: C.cardHi, color: C.faint }}
-          >
-            <ImageIcon size={20} aria-hidden="true" />
-            <p className="font-mono text-xs">{src}</p>
-            <p className="font-mono text-[11px]">
-              {w} × {h}
-            </p>
-          </div>
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            width={w}
-            height={h}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="block w-full"
-            style={{ aspectRatio: `${w} / ${h}`, objectFit: "cover", backgroundColor: C.cardHi }}
-          />
-        )}
-      </div>
-      <figcaption className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ========================================================================== */
 
@@ -789,67 +748,6 @@ export default function PricingEngineLanding() {
               </p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          5 — SCREENSHOT SHOWCASE
-          Dashboard capture is 3024 × 1964. Remaining slots are TODO.
-          Drop files into /screenshots and keep the filenames below.
-          ================================================================== */}
-      <section className="border-y" style={{ borderColor: C.border, backgroundColor: C.card }}>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-          <Reveal>
-            <Eyebrow>The product</Eyebrow>
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-              Same engine behind every screen.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {[
-              {
-                src: "/screenshots/pricing-dashboard.png",
-                w: 3024,
-                h: 1964,
-                wide: true,
-                alt: "The customer dashboard showing total bookings, loyalty points, amount saved through dynamic pricing and AI bookings, with quick actions below.",
-                caption:
-                  "Customer dashboard. Saved amount is computed against the undiscounted rate, and AI bookings track how many reservations came through the assistant rather than the site.",
-              },
-              {
-                // TODO: capture the fleet browse / vehicle detail page with a live quote
-                src: "/screenshots/pricing-fleet.png",
-                w: 3024,
-                h: 1964,
-                alt: "TODO: the fleet browser showing vehicles with their dynamically priced daily rates.",
-                caption:
-                  "Fleet. Every card's rate comes from the same unified endpoint, with the market-comparison line and the applied discounts shown alongside.",
-              },
-              {
-                // TODO: capture the chatbot mid-booking
-                src: "/screenshots/pricing-chatbot.png",
-                w: 3024,
-                h: 1964,
-                alt: "TODO: the booking assistant partway through the eleven-step flow.",
-                caption:
-                  "Booking assistant. Eleven forward-only states, a quote locked for fifteen minutes, and a Firestore transaction that verifies availability before it writes.",
-              },
-              {
-                // TODO: capture the admin / pricing decisions view
-                src: "/screenshots/pricing-admin.png",
-                w: 3024,
-                h: 1964,
-                alt: "TODO: the admin view showing logged pricing decisions and competitor scrape status.",
-                caption:
-                  "Pricing audit. Each decision stores its inputs, features, market stats and model version — the training set for the next model.",
-              },
-            ].map((shot, i) => (
-              <Reveal key={shot.src} delay={i * 90} className={shot.wide ? "lg:col-span-2" : undefined}>
-                <Shot src={shot.src} w={shot.w} h={shot.h} alt={shot.alt} caption={shot.caption} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
