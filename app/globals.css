@@ -100,5 +100,12 @@ html { scroll-behavior: smooth; }
 }
 .zh-hero { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
 @media (min-width: 900px) { .zh-hero { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 620px) { .zh-navlinks { display: none !important; } }
+/* Mobile nav: hide desktop links, show the hamburger + dropdown below 620px */
+.zh-navtoggle { display: none; align-items: center; justify-content: center; }
+@media (max-width: 620px) {
+  .zh-navlinks { display: none !important; }
+  .zh-navtoggle { display: inline-flex; }
+  /* fixed corner watermarks overlap content on small screens */
+  .zh-wm { display: none; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .zh-blink { animation: none; } }
