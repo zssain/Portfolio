@@ -36,6 +36,7 @@ export interface Project {
   demo: string | null;
   image: string | null;
   pinned: boolean; // only pinned projects render as cards in the Projects grid
+  landing?: string; // slug of a /projects/<slug> landing page (hover preview + click-through)
 }
 
 export interface Repo {
@@ -65,6 +66,7 @@ export const PROJECTS: Project[] = [
     tags: ["FastAPI", "scikit-learn", "XGBoost", "React"],
     lang: "Python",
     github: "https://github.com/zssain/Aperture",
+    landing: "aperture",
     demo: null,
     image: null, // <-- screenshot URL (shown on hover)
     pinned: true,
@@ -89,6 +91,7 @@ export const PROJECTS: Project[] = [
     tags: ["PyTorch", "TensorFlow", "OpenCV", "Gradio"],
     lang: "Python",
     github: "https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance",
+    landing: "colorization",
     demo: null,
     image: null,
     pinned: false,
@@ -101,6 +104,7 @@ export const PROJECTS: Project[] = [
     tags: ["TensorFlow", "Statsmodels", "Prophet", "Pandas"],
     lang: "Python",
     github: "https://github.com/zssain/Time-Series-Forecasting-of-Stock-Prices",
+    landing: "time-series",
     demo: null,
     image: null,
     pinned: true,
@@ -113,6 +117,7 @@ export const PROJECTS: Project[] = [
     tags: ["ARIMA/SARIMA", "scikit-learn", "Forecasting", "Python"],
     lang: "Python",
     github: "https://github.com/zssain/Dynamic-Pricing-Engine",
+    landing: "vantage",
     demo: null,
     image: null,
     pinned: true,
@@ -125,6 +130,7 @@ export const PROJECTS: Project[] = [
     tags: ["React", "TypeScript", "WebRTC", "Ed25519"],
     lang: "TypeScript",
     github: "https://github.com/zssain/pingpong",
+    landing: "wisp",
     demo: null,
     image: null,
     pinned: true,
@@ -149,9 +155,23 @@ export const PROJECTS: Project[] = [
     tags: ["LLM Pipeline", "FastAPI", "pgvector", "Ollama"],
     lang: "Python",
     github: "https://github.com/zssain/visentix-v2--MVP",
+    landing: "visentix",
     demo: null,
     image: null,
     pinned: false,
+  },
+  {
+    title: "HireSense — Explainable CV Screening",
+    category: "NLP · Explainable Hiring",
+    desc:
+      "An explainable CV-screening tool that ranks candidates against a role and defends every decision — surfacing the exact skills, evidence, and gaps behind each score instead of a black-box number. Built on spaCy and sentence-transformer embeddings, with a transparent rationale recruiters can actually trust.",
+    tags: ["Python", "spaCy", "Sentence-Transformers", "React"],
+    lang: "Python",
+    github: "https://github.com/zssain/HireSense",
+    demo: null,
+    image: null,
+    pinned: false,
+    landing: "hiresense",
   },
   // add more projects here ↑ (same shape)
 ];
