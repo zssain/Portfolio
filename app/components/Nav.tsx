@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { C } from "../lib/data";
 import { scrollToId } from "../lib/scrollToId";
 import { HOVER_TAP } from "../lib/motion";
+import { LogoMark } from "./LogoMark";
 
 const NAV = ["Work", "Projects", "Skills", "Contact"];
 
@@ -29,8 +30,9 @@ export function Nav() {
 
   return (
       <nav style={{ position: "sticky", top: 0, zIndex: 40, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px clamp(20px, 6vw, 80px)", background: "rgba(var(--bg-rgb),0.72)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${C.border}` }}>
-        <a href="#top" style={{ fontFamily: "var(--font-mono), monospace", color: C.text, textDecoration: "none", fontSize: 15 }}>
-          <span style={{ color: C.accent }}>~/</span>zuhair
+        <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: 9, fontFamily: "var(--font-mono), monospace", color: C.text, textDecoration: "none", fontSize: 15 }}>
+          <LogoMark size={20} blink />
+          <span><span style={{ color: C.accent }}>~/</span>zuhair</span>
         </a>
         <div style={{ display: "flex", gap: 22 }} className="zh-navlinks">
           {NAV.map((n) => {

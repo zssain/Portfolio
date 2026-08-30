@@ -24,8 +24,25 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-sigma-virid-86.vercel.app"),
   title: "Mohammed Zuhair Hussain — AI / ML Engineer",
   description: "Portfolio of Mohammed Zuhair Hussain, AI / ML Engineer.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  openGraph: {
+    type: "website",
+    title: "Mohammed Zuhair Hussain — AI / ML Engineer",
+    description: "Portfolio of Mohammed Zuhair Hussain, AI / ML Engineer.",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mohammed Zuhair Hussain — AI / ML Engineer",
+    description: "Portfolio of Mohammed Zuhair Hussain, AI / ML Engineer.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
