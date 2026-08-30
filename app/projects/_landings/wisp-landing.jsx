@@ -344,7 +344,7 @@ export default function WispLanding() {
             </a>
             {/* TODO: repository URL */}
             <a
-              href="#"
+              href="https://github.com/zssain/pingpong" target="_blank" rel="noreferrer"
               className="ml-2 inline-flex items-center gap-2 border px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] transition-colors hover:bg-white/5 sm:ml-6"
               style={{ borderColor: C.rule, color: C.text }}
             >
@@ -377,7 +377,7 @@ export default function WispLanding() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               {/* TODO: repository URL */}
               <a
-                href="#"
+                href="https://github.com/zssain/pingpong" target="_blank" rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-1"
                 style={{ backgroundColor: C.amber, color: C.canvas, outlineColor: C.amber }}
               >
@@ -818,7 +818,7 @@ export default function WispLanding() {
               <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
-                  href="#"
+                  href="https://github.com/zssain/pingpong" target="_blank" rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-1"
                   style={{ backgroundColor: C.amber, color: C.canvas, outlineColor: C.amber }}
                 >

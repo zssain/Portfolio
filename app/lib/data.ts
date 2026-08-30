@@ -72,18 +72,6 @@ export const PROJECTS: Project[] = [
     pinned: true,
   },
   {
-    title: "Agentic Recruitment Automation",
-    category: "Agentic AI · Multi-Agent",
-    desc:
-      "Multi-agent system orchestrating specialized AI agents for CV scoring, JD optimization, bias detection, and explainable candidate feedback.",
-    tags: ["Python", "Multi-agent", "Explainable AI", "Streamlit"],
-    lang: "Python",
-    github: "https://github.com/zssain/Accenture-Hackathon",
-    demo: null,
-    image: null,
-    pinned: false,
-  },
-  {
     title: "Multi-Model Image Colorization",
     category: "Computer Vision · Deep Learning",
     desc:
@@ -161,11 +149,11 @@ export const PROJECTS: Project[] = [
     pinned: false,
   },
   {
-    title: "HireSense — Explainable CV Screening",
-    category: "NLP · Explainable Hiring",
+    title: "HireSense — Agentic CV Screening",
+    category: "Agentic AI · Explainable Hiring",
     desc:
-      "An explainable CV-screening tool that ranks candidates against a role and defends every decision — surfacing the exact skills, evidence, and gaps behind each score instead of a black-box number. Built on spaCy and sentence-transformer embeddings, with a transparent rationale recruiters can actually trust.",
-    tags: ["Python", "spaCy", "Sentence-Transformers", "React"],
+      "An agentic recruitment system that ranks candidates against a role and defends every decision — orchestrated agents handle CV scoring, JD fit, and bias checks, and each result carries the exact skills, evidence, and gaps behind it instead of a black-box number. Built on spaCy and sentence-transformer embeddings with a rationale recruiters can actually trust.",
+    tags: ["Python", "Multi-agent", "spaCy", "Explainable AI"],
     lang: "Python",
     github: "https://github.com/zssain/HireSense",
     demo: null,

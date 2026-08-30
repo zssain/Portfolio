@@ -417,7 +417,7 @@ export default function ApertureLanding() {
             </a>
             {/* TODO: replace with the real repository URL */}
             <a
-              href="#"
+              href="https://github.com/zssain/Aperture" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 rounded px-3 py-2 text-sm font-medium transition-colors hover:bg-gray-100"
               style={{ color: C.text }}
             >
@@ -457,7 +457,7 @@ export default function ApertureLanding() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               {/* TODO: repository URL */}
               <a
-                href="#"
+                href="https://github.com/zssain/Aperture" target="_blank" rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{ backgroundColor: C.blue, outlineColor: C.blue }}
               >
@@ -994,7 +994,7 @@ export default function ApertureLanding() {
               <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
-                  href="#"
+                  href="https://github.com/zssain/Aperture" target="_blank" rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   style={{ backgroundColor: C.blue, outlineColor: C.green }}
                 >

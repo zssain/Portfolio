@@ -487,7 +487,7 @@ export default function ForecastingLanding() {
             </a>
             {/* TODO: repository URL */}
             <a
-              href="#"
+              href="https://github.com/zssain/Time-Series-Forecasting-of-Stock-Prices" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 rounded border bg-white px-3 py-2 font-mono text-xs transition-colors hover:bg-slate-50"
               style={{ borderColor: C.grid, color: C.ink }}
             >
@@ -518,7 +518,7 @@ export default function ForecastingLanding() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {/* TODO: repository URL */}
               <a
-                href="#"
+                href="https://github.com/zssain/Time-Series-Forecasting-of-Stock-Prices" target="_blank" rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded px-6 py-3 font-mono text-sm text-white transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{ backgroundColor: C.ink, outlineColor: C.arima }}
               >
@@ -921,7 +921,7 @@ export default function ForecastingLanding() {
               <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
-                  href="#"
+                  href="https://github.com/zssain/Time-Series-Forecasting-of-Stock-Prices" target="_blank" rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded bg-white px-6 py-3 font-mono text-sm transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   style={{ color: C.ink, outlineColor: "#FFFFFF" }}
                 >

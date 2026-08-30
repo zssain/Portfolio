@@ -385,7 +385,7 @@ export default function ColorizationLanding() {
             </a>
             {/* TODO: repository URL */}
             <a
-              href="#"
+              href="https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium transition-colors hover:bg-white/5"
               style={{ borderColor: C.rule, color: C.text }}
             >
@@ -418,7 +418,7 @@ export default function ColorizationLanding() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               {/* TODO: repository URL */}
               <a
-                href="#"
+                href="https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance" target="_blank" rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{ backgroundColor: C.orange, color: "#150800", outlineColor: C.orange }}
               >
@@ -851,7 +851,7 @@ export default function ColorizationLanding() {
               <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
-                  href="#"
+                  href="https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance" target="_blank" rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   style={{ backgroundColor: C.orange, color: "#150800", outlineColor: C.orange }}
                 >

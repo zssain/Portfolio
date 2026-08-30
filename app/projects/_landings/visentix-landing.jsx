@@ -320,7 +320,7 @@ export default function VisentixLanding() {
             </a>
             {/* TODO: repository URL */}
             <a
-              href="#"
+              href="https://github.com/zssain/visentix-v2--MVP" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors hover:bg-white"
               style={{ color: C.heading }}
             >
@@ -357,7 +357,7 @@ export default function VisentixLanding() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               {/* TODO: repository URL */}
               <a
-                href="#"
+                href="https://github.com/zssain/visentix-v2--MVP" target="_blank" rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{ backgroundColor: C.blue, outlineColor: C.blue }}
               >
@@ -840,7 +840,7 @@ export default function VisentixLanding() {
               <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
-                  href="#"
+                  href="https://github.com/zssain/visentix-v2--MVP" target="_blank" rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   style={{ backgroundColor: C.blue, outlineColor: "#7FB0E8" }}
                 >
