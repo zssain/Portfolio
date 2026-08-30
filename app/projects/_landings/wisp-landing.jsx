@@ -269,7 +269,7 @@ export default function WispLanding() {
 
   return (
     <div
-      className="min-h-screen antialiased"
+      className="min-h-screen overflow-x-hidden antialiased"
       style={{ backgroundColor: C.canvas, color: C.text }}
     >
       {/* ==================================================================
@@ -316,7 +316,7 @@ export default function WispLanding() {
           ================================================================== */}
       <section id="top" className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-14 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-7">
+          <Reveal className="min-w-0 lg:col-span-7">
             <Eyebrow>Offline mesh messaging</Eyebrow>
             <h1 className="text-4xl leading-[1.12] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               The mesh that survives
@@ -352,7 +352,7 @@ export default function WispLanding() {
           </Reveal>
 
           {/* --- Message record: content address + hop chain --- */}
-          <Reveal delay={140} className="lg:col-span-5">
+          <Reveal delay={140} className="min-w-0 lg:col-span-5">
             <div className="border" style={{ borderColor: C.rule, backgroundColor: C.panel }}>
               <div
                 className="flex items-center justify-between border-b px-4 py-3"
@@ -440,13 +440,13 @@ export default function WispLanding() {
           ================================================================== */}
       <section className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2 className="text-3xl leading-tight tracking-tight sm:text-4xl">
               Every messaging app assumes a server in the middle.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 In a blackout, a disaster or a deliberate shutdown, people
@@ -700,7 +700,7 @@ export default function WispLanding() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="text-3xl leading-tight tracking-tight sm:text-4xl">
                   Read the protocol. It's about 5,800 lines.
                 </h2>
@@ -710,7 +710,7 @@ export default function WispLanding() {
                   other — all client-side, with no backend to read.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/pingpong" target="_blank" rel="noreferrer"

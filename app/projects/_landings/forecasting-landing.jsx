@@ -417,7 +417,7 @@ export default function ForecastingLanding() {
   const toggle = (k) => setVisible((v) => ({ ...v, [k]: !v[k] }));
 
   return (
-    <div className="min-h-screen antialiased" style={{ backgroundColor: C.field, color: C.ink }}>
+    <div className="min-h-screen overflow-x-hidden antialiased" style={{ backgroundColor: C.field, color: C.ink }}>
       {/* ==================================================================
           NAV
           ================================================================== */}
@@ -571,13 +571,13 @@ export default function ForecastingLanding() {
           ================================================================== */}
       <section>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-20 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2 className="font-mono text-2xl leading-tight tracking-tight sm:text-3xl">
               No single model is obviously right for a financial series.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 Price series are noisy, non-stationary and volatility-clustered.
@@ -821,7 +821,7 @@ export default function ForecastingLanding() {
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 md:py-16">
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="font-mono text-2xl leading-tight tracking-tight sm:text-3xl">
                   Clone it, run one file, watch them disagree.
                 </h2>
@@ -831,7 +831,7 @@ export default function ForecastingLanding() {
                   swap a sixth model into.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/Time-Series-Forecasting-of-Stock-Prices" target="_blank" rel="noreferrer"

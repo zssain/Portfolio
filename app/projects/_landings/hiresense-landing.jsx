@@ -285,7 +285,7 @@ export default function HireSenseLanding() {
   const active = AGENTS.find((a) => a.n === activeN) || AGENTS[0];
 
   return (
-    <div className="min-h-screen antialiased" style={{ backgroundColor: C.field, color: C.text }}>
+    <div className="min-h-screen overflow-x-hidden antialiased" style={{ backgroundColor: C.field, color: C.text }}>
       {/* ==================================================================
           NAV
           ================================================================== */}
@@ -322,7 +322,7 @@ export default function HireSenseLanding() {
           ================================================================== */}
       <section id="top" className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-6">
+          <Reveal className="min-w-0 lg:col-span-6">
             <Eyebrow>Explainable CV screening</Eyebrow>
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
               Seven agents.
@@ -364,7 +364,7 @@ export default function HireSenseLanding() {
           </Reveal>
 
           {/* --- A candidate row, as the dashboard renders it --- */}
-          <Reveal delay={140} className="lg:col-span-6">
+          <Reveal delay={140} className="min-w-0 lg:col-span-6">
             <div className="rounded-lg border p-6" style={{ borderColor: C.rule, backgroundColor: C.block }}>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold">Ranked candidate</p>
@@ -443,13 +443,13 @@ export default function HireSenseLanding() {
           ================================================================== */}
       <section className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
               A ranking nobody can explain is a ranking nobody should trust.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 Screening a stack of CVs by hand is slow, and the ordering rarely
@@ -531,7 +531,7 @@ export default function HireSenseLanding() {
           {/* --- SIGNATURE: the agent relay --- */}
           <Reveal delay={100}>
             <div className="mt-12 grid gap-6 lg:grid-cols-12">
-              <ol className="lg:col-span-7" role="list">
+              <ol className="min-w-0 lg:col-span-7" role="list">
                 {AGENTS.map((a, i) => {
                   const isActive = a.n === activeN;
                   return (
@@ -573,7 +573,7 @@ export default function HireSenseLanding() {
                 })}
               </ol>
 
-              <div className="lg:col-span-5">
+              <div className="min-w-0 lg:col-span-5">
                 <div className="h-full rounded-lg border p-6" style={{ borderColor: C.rule, backgroundColor: C.block }}>
                   <p className="font-mono text-xs" style={{ color: C.coral }}>
                     stage {active.n} / 7
@@ -687,7 +687,7 @@ export default function HireSenseLanding() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                   Eight files. No API keys. Runs on a laptop.
                 </h2>
@@ -697,7 +697,7 @@ export default function HireSenseLanding() {
                   scoring logic is short enough to read in one sitting.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/HireSense" target="_blank" rel="noreferrer"

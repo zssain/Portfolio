@@ -326,7 +326,7 @@ export default function ColorizationLanding() {
   const active = METHODS.find((m) => m.id === activeId) || METHODS[0];
 
   return (
-    <div className="min-h-screen antialiased" style={{ backgroundColor: C.field, color: C.text }}>
+    <div className="min-h-screen overflow-x-hidden antialiased" style={{ backgroundColor: C.field, color: C.text }}>
       {/* ==================================================================
           NAV
           ================================================================== */}
@@ -363,7 +363,7 @@ export default function ColorizationLanding() {
           ================================================================== */}
       <section id="top" className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-6">
+          <Reveal className="min-w-0 lg:col-span-6">
             <Eyebrow>Computer vision · comparative study</Eyebrow>
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
               Four ways to colour
@@ -403,7 +403,7 @@ export default function ColorizationLanding() {
           </Reveal>
 
           {/* --- The LAB pipeline, which is the actual idea --- */}
-          <Reveal delay={140} className="lg:col-span-6">
+          <Reveal delay={140} className="min-w-0 lg:col-span-6">
             <div className="rounded-lg border p-6" style={{ borderColor: C.rule, backgroundColor: C.block }}>
               <p className="text-sm font-semibold">What the network actually predicts</p>
               <p className="mt-1 text-sm" style={{ color: C.muted }}>
@@ -466,13 +466,13 @@ export default function ColorizationLanding() {
           ================================================================== */}
       <section className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
               Plenty of colorizers exist. Comparing them is the hard part.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 Old and scientific images are often grayscale, and colouring them
@@ -549,7 +549,7 @@ export default function ColorizationLanding() {
           <Reveal delay={100}>
             <div className="mt-12 grid gap-6 lg:grid-cols-12">
               {/* Selector, in the dashboard's own radio idiom */}
-              <div className="lg:col-span-5">
+              <div className="min-w-0 lg:col-span-5">
                 <p className="mb-3 text-sm font-semibold">Choose a colorization model</p>
                 <ul role="list" className="space-y-2">
                   {METHODS.map((m) => {
@@ -598,7 +598,7 @@ export default function ColorizationLanding() {
               </div>
 
               {/* Detail + measured ranges */}
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <div className="rounded-lg border p-6" style={{ borderColor: C.rule, backgroundColor: C.block }}>
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -739,7 +739,7 @@ export default function ColorizationLanding() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                   The interesting part is what gets measured.
                 </h2>
@@ -749,7 +749,7 @@ export default function ColorizationLanding() {
                   tell you is wrong and how to fix it.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/Multi-Model-Image-Colorization-System-with-Interactive-Dashboard-and-Performance" target="_blank" rel="noreferrer"

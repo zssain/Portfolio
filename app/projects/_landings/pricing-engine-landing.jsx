@@ -277,7 +277,7 @@ export default function PricingEngineLanding() {
   const clampedByFloor = p.blended < p.floor;
 
   return (
-    <div className="min-h-screen antialiased" style={{ backgroundColor: C.canvas, color: C.text }}>
+    <div className="min-h-screen overflow-x-hidden antialiased" style={{ backgroundColor: C.canvas, color: C.text }}>
       {/* ==================================================================
           NAV
           ================================================================== */}
@@ -322,7 +322,7 @@ export default function PricingEngineLanding() {
           ================================================================== */}
       <section id="top">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-6">
+          <Reveal className="min-w-0 lg:col-span-6">
             <Eyebrow>Car rental · Saudi Arabia</Eyebrow>
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
               One price engine.
@@ -362,7 +362,7 @@ export default function PricingEngineLanding() {
           </Reveal>
 
           {/* --- Signals feeding one quote --- */}
-          <Reveal delay={140} className="lg:col-span-6">
+          <Reveal delay={140} className="min-w-0 lg:col-span-6">
             <div className="rounded-2xl border p-6" style={{ borderColor: C.border, backgroundColor: C.card }}>
               <p className="text-sm font-semibold" style={{ color: C.muted }}>
                 Ten signals per quote
@@ -429,13 +429,13 @@ export default function PricingEngineLanding() {
           ================================================================== */}
       <section>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
               Static rates leave money on the table — and channels disagree.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 Rental pricing is usually set by hand and updated rarely, so
@@ -511,7 +511,7 @@ export default function PricingEngineLanding() {
           {/* --- SIGNATURE: the price waterfall --- */}
           <Reveal delay={100}>
             <div className="mt-12 grid gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-5">
+              <div className="min-w-0 lg:col-span-5">
                 <h3 className="text-xl font-bold">Build a quote</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: C.muted }}>
                   A mid-size sedan in Riyadh. Change the duration and the pickup
@@ -584,7 +584,7 @@ export default function PricingEngineLanding() {
               </div>
 
               {/* --- The waterfall itself --- */}
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <div className="rounded-2xl border p-6" style={{ borderColor: C.border, backgroundColor: C.card }}>
                   <ol className="space-y-3" aria-live="polite">
                     {[
@@ -758,7 +758,7 @@ export default function PricingEngineLanding() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                   The interesting part is the guardrails.
                 </h2>
@@ -769,7 +769,7 @@ export default function PricingEngineLanding() {
                   in the repository.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/Dynamic-Pricing-Engine" target="_blank" rel="noreferrer"

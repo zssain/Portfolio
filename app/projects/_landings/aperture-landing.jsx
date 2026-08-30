@@ -330,7 +330,7 @@ export default function ApertureLanding() {
 
   return (
     <div
-      className="min-h-screen antialiased"
+      className="min-h-screen overflow-x-hidden antialiased"
       style={{ backgroundColor: C.paper, color: C.text }}
     >
       {/* ==================================================================
@@ -382,7 +382,7 @@ export default function ApertureLanding() {
           ================================================================== */}
       <section id="top" className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-14 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-6">
+          <Reveal className="min-w-0 lg:col-span-6">
             <Eyebrow>Credit decisioning</Eyebrow>
             <h1
               className="text-4xl leading-[1.08] sm:text-5xl lg:text-[3.4rem]"
@@ -428,7 +428,7 @@ export default function ApertureLanding() {
           </Reveal>
 
           {/* --- Decision record card (data taken from the live queue) ----- */}
-          <Reveal delay={140} className="lg:col-span-6">
+          <Reveal delay={140} className="min-w-0 lg:col-span-6">
             <div
               className="overflow-hidden rounded-lg border shadow-sm"
               style={{ borderColor: C.rule }}
@@ -549,7 +549,7 @@ export default function ApertureLanding() {
           ================================================================== */}
       <section className="border-b" style={{ borderColor: C.rule }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2
               className="text-3xl leading-tight sm:text-4xl"
@@ -558,7 +558,7 @@ export default function ApertureLanding() {
               Rejected for having no history, not for being unable to repay.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 New-to-credit and thin-file applicants get declined because they
@@ -694,7 +694,7 @@ export default function ApertureLanding() {
               </p>
 
               <div className="mt-8 grid gap-6 lg:grid-cols-12">
-                <ul className="lg:col-span-7" role="list">
+                <ul className="min-w-0 lg:col-span-7" role="list">
                   {GATES.map((g) => {
                     const isActive = g.n === activeGate;
                     return (
@@ -741,7 +741,7 @@ export default function ApertureLanding() {
                   })}
                 </ul>
 
-                <div className="lg:col-span-5">
+                <div className="min-w-0 lg:col-span-5">
                   <div
                     className="rounded-lg border p-6"
                     style={{ borderColor: C.inkSoft, backgroundColor: "rgba(255,255,255,0.03)" }}
@@ -850,7 +850,7 @@ export default function ApertureLanding() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="text-3xl leading-tight sm:text-4xl" style={{ fontFamily: SERIF, color: "#FFFFFF" }}>
                   Read the decision path end to end.
                 </h2>
@@ -861,7 +861,7 @@ export default function ApertureLanding() {
                   replay tests are all in the repository.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/Aperture" target="_blank" rel="noreferrer"

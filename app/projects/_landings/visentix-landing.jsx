@@ -245,7 +245,7 @@ export default function VisentixLanding() {
 
   return (
     <div
-      className="min-h-screen antialiased"
+      className="min-h-screen overflow-x-hidden antialiased"
       style={{ backgroundColor: C.field, color: C.text }}
     >
       {/* ==================================================================
@@ -293,7 +293,7 @@ export default function VisentixLanding() {
           ================================================================== */}
       <section id="top">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-6">
+          <Reveal className="min-w-0 lg:col-span-6">
             <Eyebrow>Privacy intelligence</Eyebrow>
             <h1
               className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl"
@@ -336,7 +336,7 @@ export default function VisentixLanding() {
           </Reveal>
 
           {/* --- Scorecard card, styled like the console --- */}
-          <Reveal delay={140} className="lg:col-span-6">
+          <Reveal delay={140} className="min-w-0 lg:col-span-6">
             <div
               className="rounded-xl border p-6 shadow-sm"
               style={{ borderColor: C.border, backgroundColor: C.card }}
@@ -423,13 +423,13 @@ export default function VisentixLanding() {
           ================================================================== */}
       <section>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <Eyebrow>The problem</Eyebrow>
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl" style={{ color: C.heading }}>
               Nobody can compare a hundred privacy notices by reading them.
             </h2>
           </Reveal>
-          <Reveal delay={120} className="lg:col-span-7">
+          <Reveal delay={120} className="min-w-0 lg:col-span-7">
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: C.muted }}>
               <p>
                 Privacy policies are long, deliberately vague, and written by
@@ -544,7 +544,7 @@ export default function VisentixLanding() {
           {/* --- SIGNATURE: the confidence index --- */}
           <Reveal delay={80}>
             <div className="mt-16 grid gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-5">
+              <div className="min-w-0 lg:col-span-5">
                 <h3 className="text-2xl font-bold">The honesty layer</h3>
                 <p className="mt-3 text-sm leading-relaxed" style={{ color: C.mutedOnNavy }}>
                   Every score carries a Confidence Index built from five weighted
@@ -566,7 +566,7 @@ export default function VisentixLanding() {
                 </ul>
               </div>
 
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <div
                   className="rounded-xl border p-6"
                   style={{ borderColor: C.navySoft, backgroundColor: "rgba(255,255,255,0.04)" }}
@@ -721,7 +721,7 @@ export default function VisentixLanding() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+              <div className="min-w-0 lg:col-span-7">
                 <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                   The scoring engine is the interesting part.
                 </h2>
@@ -732,7 +732,7 @@ export default function VisentixLanding() {
                   It's all in the repository.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+              <div className="flex flex-col gap-3 sm:flex-row min-w-0 lg:col-span-5 lg:justify-end">
                 {/* TODO: repository URL */}
                 <a
                   href="https://github.com/zssain/visentix-v2--MVP" target="_blank" rel="noreferrer"
